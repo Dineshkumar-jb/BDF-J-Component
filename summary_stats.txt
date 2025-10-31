@@ -1,0 +1,10 @@
+Fraud Detection Summary
+=====================
+
+Total Transactions: 1000
+Predicted Fraud: 87
+Actual Fraud: 91
+Average Transaction Amount: 516.54
+Max Transaction Amount: 999.85
+True Positives: 0
+False Positives: 0
