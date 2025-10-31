@@ -327,9 +327,3 @@ Contributions are welcome! Please feel free to:
 - GitHub: https://github.com/Dineshkumar-jb
 - LinkedIn: https://www.linkedin.com/in/dineshkumar-jb/
 - Email: dineshkumar.j.b2005@gmail.com
-
----
-
-⭐ If you found this project helpful, please consider giving it a star!
-
-**Built with** ❤️ **using PySpark and distributed systems**
