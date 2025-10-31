@@ -1,0 +1,24 @@
+cluster_name: 'FraudDetection Cluster'
+num_tokens: 32
+max_heap_size: 2G
+heap_newsize: 512M
+commitlog_segment_size_in_mb: 32
+commitlog_total_space_in_mb: 1024
+memtable_heap_space_in_mb: 512
+memtable_offheap_space_in_mb: 512
+concurrent_reads: 16
+concurrent_writes: 16
+concurrent_counter_writes: 16
+
+seed_provider:
+    - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+      parameters:
+          - seeds: "127.0.0.1"
+
+listen_address: localhost
+rpc_address: localhost
+endpoint_snitch: SimpleSnitch
+data_file_directories:
+    - /home/dineshkumar/Credit-Card-Fraud-Detection-Spark/cassandra/data
+commitlog_directory: /home/dineshkumar/Credit-Card-Fraud-Detection-Spark/cassandra/commitlog
+saved_caches_directory: /home/dineshkumar/Credit-Card-Fraud-Detection-Spark/cassandra/saved_caches

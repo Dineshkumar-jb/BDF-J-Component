@@ -1,0 +1,49 @@
+###########################################################################
+#                             jvm.options                                 #
+###########################################################################
+
+#################
+# HEAP SETTINGS #
+#################
+
+# Heap size is automatically calculated by cassandra-env.sh based on this
+# formula: max(min(1/2 ram, 1024MB), min(1/4 ram, 8GB))
+# That is:
+# - Calculate 1/2 ram and 1024MB, take the min
+# - Calculate 1/4 ram and 8GB, take the min
+# - Take the max of the two values
+# Overwrite the calculated value by uncommenting and setting following properties
+-Xms2G
+-Xmx2G
+
+# Young generation size is automatically calculated by cassandra-env.sh
+# based on this formula: min(100 * num_cores, 1/4 * heap size)
+-Xmn512M
+
+##################
+# GC SETTINGS    #
+##################
+
+# Use the G1 Garbage Collector
+-XX:+UseG1GC
+
+# Have the JVM do less GC by growing/shrinking the heap less aggressively
+-XX:G1RSetUpdatingPauseTimePercent=5
+-XX:MaxGCPauseMillis=500
+-XX:InitiatingHeapOccupancyPercent=70
+-XX:ParallelGCThreads=8
+-XX:ConcGCThreads=2
+
+# String Deduplication
+-XX:+UseStringDeduplication
+-XX:StringDeduplicationAgeThreshold=7
+
+# Heap Dump Settings
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=/home/dineshkumar/Credit-Card-Fraud-Detection-Spark/cassandra/heapdump.hprof
+
+# JMX Settings
+-Djava.rmi.server.hostname=127.0.0.1
+-Dcom.sun.management.jmxremote.port=7199
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
